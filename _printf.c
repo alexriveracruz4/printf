@@ -14,37 +14,37 @@ int _printf(const char *format, ...)
 		{"s", print_s},
 		{NULL, NULL}
 	};
-	int i = 0, n = 0;
+	int i = 0, n = 0, j;
 
 	va_list list;
 
 	va_start(list, format);
 	while (format && format[i])
 	{
-		for (;format[i] && format[i] != '%'; i++)
+		for (; format[i] && format[i] != '%'; i++)
 		{
 			_putchar(format[i]);
 			n++;
 		}
 		for (j = 0; format[i] == '%' && p[j].type != NULL; j++)
 		{
-			if (format[i + 1] == *(p[j].t))
+			if (format[i + 1] == *(p[j].type))
 			{
 				n += p[j].func(list);
 				i += 2;
 				break;
 			}
 		}
-		if(format[i] == '%' && p[j].type == NULL)
+		if (format[i] == '%' && p[j].type == NULL)
 		{
 			_putchar(format[i]);
 			n++;
-			if (format[i+1] == '%')
+			if (format[i + 1] == '%')
 				i += 2;
 			else
 				i++;
 		}
 	}
-	va_end(valist);
+	va_end(list);
 	return (n);
 }
