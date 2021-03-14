@@ -2,6 +2,37 @@
 #include <stdlib.h>
 
 /**
+ * get_spec - get the format
+ * @format: type of specifier
+ *
+ * Return: NULL or valid function
+ */
+
+int (*get_spec(const char *format))(va_list)
+{
+	print_t p[] = {
+		{"c", print_c},
+		{"s", print_s},
+		{"i", print_i},
+		{"d", print_d},
+		{"u", print_u},
+		{"b", print_b},
+		{"o", print_o},
+		{"x", print_x},
+		{"X", print_X},
+		{NULL, NULL}
+	};
+	int i;
+
+	for (i = 0; p[i].type != NULL; i++)
+	{
+		if (*(p[i].type) == *format)
+			break;
+	}
+	return (p[i].func);
+}
+
+/**
  * _printf - function print all
  * @format: type of the argument
  *
@@ -9,21 +40,9 @@
  */
 int _printf(const char *format, ...)
 {
-	print_t p[] = {
-		{"c", print_c},
-		{"s", print_s},
-		{"d", print_d},
-		{"i", print_i},
-		{"b", print_b},
-		{"u", print_u},
-		{"o", print_o},
-		{"x", print_x},
-		{"X", print_X},
-		{NULL, NULL}
-	};
-	int i = 0, n = 0, j;
-
+	int i = 0, n = 0;
 	va_list list;
+	int (*sp)(va_list);
 
 	va_start(list, format);
 	while (format && format[i])
@@ -33,16 +52,16 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			n++;
 		}
-		for (j = 0; format[i] == '%' && p[j].type != NULL; j++)
+		if (format[i] == '\0')
+			return (n);
+
+		sp = get_spec(&format[i + 1]);
+		if (sp != NULL)
 		{
-			if (format[i + 1] == *(p[j].type))
-			{
-				n += p[j].func(list);
-				i += 2;
-				break;
-			}
+			n += sp(list);
+			i += 2;
 		}
-		if (format[i] == '%' && p[j].type == NULL)
+		else
 		{
 			_putchar(format[i]);
 			n++;
