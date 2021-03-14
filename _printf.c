@@ -12,6 +12,8 @@ int _printf(const char *format, ...)
 	print_t p[] = {
 		{"c", print_c},
 		{"s", print_s},
+		{"d", print_d},
+		{"i", print_i},
 		{NULL, NULL}
 	};
 	int i = 0, n = 0, j;
