@@ -1,6 +1,6 @@
 #include "holberton.h"
 #include <stdarg.h>
-
+#include <stdlib.h>
 /**
 *print_s - function to print a string
 *@s: paramaters
@@ -13,10 +13,10 @@ int print_s(va_list s)
 	char *value;
 	int i;
 
-	value = va_arg(s, char*);
+	value = va_arg(s, char *);
 	if (value == NULL)
 		value = "(null)";
-	for (i = 0 ; value[i] != '\0' ; i++)
+	for (i = 0; value[i] != '\0'; i++)
 	{
 		_putchar(value[i]);
 	}
