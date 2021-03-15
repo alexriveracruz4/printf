@@ -33,5 +33,5 @@ int print_R(va_list R)
 			_putchar(string[i1]);
 		i1++;
 	}
-	return (i1 - 1);
+	return (i1);
 }
