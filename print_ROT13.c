@@ -14,8 +14,8 @@ int print_R(va_list R)
 	int len = 52;
 	int i1 = 0;
 	int i2;
-	char primera[52] = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
-	char segunda[52] = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM";
+	char pri[52] = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
+	char seg[52] = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM";
 
 	if (string == NULL)
 		string = "(ahyy)";
@@ -23,9 +23,9 @@ int print_R(va_list R)
 	{
 		for (i2 = 0 ; i2 < len ; i2++)
 		{
-			if (string[i1] == primera[i2])
+			if (string[i1] == pri[i2])
 			{
-				_putchar(segunda[i2]);
+				_putchar(seg[i2]);
 				break;
 			}
 		}
