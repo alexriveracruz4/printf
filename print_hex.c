@@ -92,7 +92,7 @@ int base_change_16_may(unsigned int n, int contador, unsigned int base)
 
 /**
 *print_x - function to print a int number in base 16 min
-*@o: paramaters
+*@x: paramaters
 *Return: the number of characters printed
 *On error, -1 is returned, and errno is set appropriately.
 */
@@ -118,7 +118,7 @@ int print_x(va_list x)
 
 /**
 *print_X - function to print a int number in base 16 mayus
-*@o: paramaters
+*@X: paramaters
 *Return: the number of characters printed
 *On error, -1 is returned, and errno is set appropriately.
 */
