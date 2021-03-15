@@ -2,7 +2,7 @@
 #include <stdarg.h>
 /**
 *print_R - function to print a int number in base 16 min
-*@o: paramaters
+*@R: paramaters
 *Return: the number of characters printed
 *On error, -1 is returned, and errno is set appropriately.
 */
