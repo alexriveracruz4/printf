@@ -47,15 +47,17 @@ int _printf(const char *format, ...)
 	va_list list;
 	int (*sp)(va_list);
 
+	if (format == NULL)
+		return (-1);
 	va_start(list, format);
-	while (format && format[i])
+	while (format[i])
 	{
 		for (; format[i] && format[i] != '%'; i++)
 		{
 			_putchar(format[i]);
 			n++;
 		}
-		if (format[i] == '\0')
+		if (format[i] == '0')
 			return (n);
 
 		sp = get_spec(&format[i + 1]);
@@ -64,15 +66,14 @@ int _printf(const char *format, ...)
 			n += sp(list);
 			i += 2;
 		}
+		if (!format[i + 1])
+			return (-1);
+		_putchar(format[i]);
+		n++;
+		if (format[i + 1] == '%')
+			i += 2;
 		else
-		{
-			_putchar(format[i]);
-			n++;
-			if (format[i + 1] == '%')
-				i += 2;
-			else
-				i++;
-		}
+			i++;
 	}
 	va_end(list);
 	return (n);
