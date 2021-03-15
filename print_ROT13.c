@@ -18,7 +18,7 @@ int print_R(va_list R)
 	char segunda[52] = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM";
 
 	if (string == NULL)
-		string = "(null)";
+		string = "(ahyy)";
 	while (string[i1])
 	{
 		for (i2 = 0 ; i2 < len ; i2++)
