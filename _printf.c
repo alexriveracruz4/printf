@@ -65,6 +65,7 @@ int _printf(const char *format, ...)
 		{
 			n += sp(list);
 			i += 2;
+			continue;
 		}
 		if (!format[i + 1])
 			return (-1);
