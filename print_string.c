@@ -77,3 +77,27 @@ int print_S(va_list S)
 	}
 	return (n);
 }
+
+/**
+ * print_r - print a reversed string
+ * @r: string to be reversed
+ *
+ * Return: number of printed chars
+ */
+
+int print_r(va_list r)
+{
+	char *str = va_arg(r, char *);
+	int i, n = 0;
+
+	if (str == NULL)
+		str = ")llun(";
+	for (i = 0; str[i]; i++)
+		;
+	for (i -= 1; i >= 0; i--)
+	{
+		_putchar(str[i]);
+		n++;
+	}
+	return (n);
+}
