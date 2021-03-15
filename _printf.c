@@ -43,7 +43,7 @@ int (*get_spec(const char *format))(va_list)
  */
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0, n = 0;
+	int i = 0, n = 0;
 	va_list list;
 	int (*sp)(va_list);
 
@@ -57,7 +57,7 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			n++;
 		}
-		if (!format[i])
+		if (format[i] == '\0')
 			return (n);
 
 		sp = get_spec(&format[i + 1]);
