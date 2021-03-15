@@ -8,7 +8,7 @@
  * Return: NULL or valid function
  */
 
-static int (*get_spec(const char *format))(va_list)
+int (*get_spec(const char *format))(va_list)
 {
 	print_t p[] = {
 		{"c", print_c},
