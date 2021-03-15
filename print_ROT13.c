@@ -9,20 +9,16 @@
 
 int print_R(va_list R)
 {
-	char *string;
-
-	string = va_arg(R, char *);
-	int length;
-	int i1;
+	char *string = va_arg(R, char *);
+	int len = 52;
+	int i1 = 0;
 	int i2;
 	char primera[52] = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
 	char segunda[52] = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM";
 
-	length = 52;
-	i1 = 0;
 	while (string[i1])
 	{
-		for (i2 = 0 ; i2 < length ; i2++)
+		for (i2 = 0 ; i2 < len ; i2++)
 		{
 			if (string[i1] == primera[i2])
 			{
@@ -30,7 +26,7 @@ int print_R(va_list R)
 				break;
 			}
 		}
-		if (i2 == length)
+		if (i2 == len)
 			_putchar(string[i1]);
 		i1++;
 	}
