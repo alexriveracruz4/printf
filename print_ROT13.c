@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdarg.h>
+#include <stdlib.h>
 /**
 *print_R - function to print a int number in base 16 min
 *@R: paramaters
@@ -16,6 +17,8 @@ int print_R(va_list R)
 	char primera[52] = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
 	char segunda[52] = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM";
 
+	if (string == NULL)
+		string = "(null)";
 	while (string[i1])
 	{
 		for (i2 = 0 ; i2 < len ; i2++)
